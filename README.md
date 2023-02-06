@@ -3,15 +3,15 @@
 A GitHub Action to run [dbt](https://www.getdbt.com) commands in a Docker container. It uses the official images provided by [Fishtown Analytics](https://hub.docker.com/r/fishtownanalytics/dbt/tags). You can use [dbt commands](https://docs.getdbt.com/reference/dbt-commands) such as `run`, `test` and `debug`. This action captures the dbt console output for use in subsequent steps.
 
 ### dbt version
-The current version of dbt is **1.3.0**. Please note that from dbt v1.0.0. you may have to change your dbt project structure compared to v0.x.x. See the [migration](https://docs.getdbt.com/docs/guides/migration-guide/upgrading-to-1-0-0) docs.
+The current version of dbt is **1.4.1**. Please note that from dbt v1.0.0. you may have to change your dbt project structure compared to v0.x.x. See the [migration](https://docs.getdbt.com/docs/guides/migration-guide/upgrading-to-1-0-0) docs.
 
-dbt updates their [docker images](https://hub.docker.com/r/fishtownanalytics/dbt/tags?page=1&ordering=last_updated) on a frequent basis and the main branch of this Github Action should be close to the last stable tag. If you need to use an earlier version of dbt, you can call this action with a specific [release](https://github.com/mwhitaker/dbt-action/releases), eg `mwhitaker/dbt-action@v0.21.0` or `mwhitaker/dbt-action@v0.19.1`.
+dbt updates their [docker images](https://hub.docker.com/r/fishtownanalytics/dbt/tags?page=1&ordering=last_updated) on a frequent basis and the main branch of this Github Action should be close to the last stable tag. If you need to use an earlier version of dbt, you can call this action with a specific [release](https://github.com/ac-analytics/dbt-action/releases), eg `ac-analytics/dbt-action@v0.21.0` or `ac-analytics/dbt-action@v0.19.1`.
 
 ## Usage
 
 ```yml
     - name: dbt-action
-      uses: mwhitaker/dbt-action@master
+      uses: ac-analytics/dbt-action@master
       with:
         dbt_command: "dbt run --profiles-dir ."
       env:
@@ -24,7 +24,7 @@ The result of the dbt command is either `failed` or `passed` and is saved into t
 ```yml
     - name: dbt-action
       id: dbt-run
-      uses: mwhitaker/dbt-action@master
+      uses: ac-analytics/dbt-action@master
       with:
         dbt_command: "dbt run --profiles-dir ."
       env:
@@ -42,7 +42,7 @@ This action assumes that your dbt project is in the top-level directory of your 
 
 ```yml
     - name: dbt-action
-      uses: mwhitaker/dbt-action@master
+      uses: ac-analytics/dbt-action@master
       with:
         dbt_command: "dbt run --profiles-dir ."
         dbt_project_folder: "dbt_project"
@@ -96,7 +96,7 @@ my_dataset:
 Create a secret for `DBT_USER` and `DBT_PASSWORD` and reference them in your workflow.
 ```yml
     - name: dbt-action
-      uses: mwhitaker/dbt-action@master
+      uses: ac-analytics/dbt-action@master
       with:
         dbt_command: "dbt run --profiles-dir ."
       env:
@@ -127,21 +127,21 @@ default:
 Create a secret for `DBT_TOKEN` and reference it in your workflow.
 ```yml
     - name: dbt-action
-      uses: mwhitaker/dbt-action@master
+      uses: ac-analytics/dbt-action@master
       with:
         dbt_command: "dbt run --profiles-dir ."
       env:
         DBT_TOKEN: ${{ secrets.DBT_TOKEN }}
 ```
 
-If you cannot connect to another database, please submit an [issue](https://github.com/mwhitaker/dbt-action/issues) and we'll figure it out.
+If you cannot connect to another database, please submit an [issue](https://github.com/ac-analytics/dbt-action/issues) and we'll figure it out.
 
 ## Suggested workflow and other tips
 
-Here is a [sample workflow](https://github.com/mwhitaker/dbt-action-sample) that sends dbt console logs by email.
+Here is a [sample workflow](https://github.com/ac-analytics/dbt-action-sample) that sends dbt console logs by email.
 
 ## Bugs and feature requests
-Please submit via [Github issues](https://github.com/mwhitaker/dbt-action/issues).
+Please submit via [Github issues](https://github.com/ac-analytics/dbt-action/issues).
 ## License
 
 [MIT](LICENSE)
