@@ -11,7 +11,7 @@ dbt updates their [docker images](https://hub.docker.com/r/fishtownanalytics/dbt
 
 ```yml
     - name: dbt-action
-      uses: mwhitaker/dbt-action@master
+      uses: ac-analytics/dbt-action@master
       with:
         dbt_command: "dbt run --profiles-dir ."
       env:
@@ -24,7 +24,7 @@ The result of the dbt command is either `failed` or `passed` and is saved into t
 ```yml
     - name: dbt-action
       id: dbt-run
-      uses: mwhitaker/dbt-action@master
+      uses: ac-analytics/dbt-action@master
       with:
         dbt_command: "dbt run --profiles-dir ."
       env:
@@ -42,7 +42,7 @@ This action assumes that your dbt project is in the top-level directory of your 
 
 ```yml
     - name: dbt-action
-      uses: mwhitaker/dbt-action@master
+      uses: ac-analytics/dbt-action@master
       with:
         dbt_command: "dbt run --profiles-dir ."
         dbt_project_folder: "dbt_project"
@@ -96,7 +96,7 @@ my_dataset:
 Create a secret for `DBT_USER` and `DBT_PASSWORD` and reference them in your workflow.
 ```yml
     - name: dbt-action
-      uses: mwhitaker/dbt-action@master
+      uses: ac-analytics/dbt-action@master
       with:
         dbt_command: "dbt run --profiles-dir ."
       env:
@@ -123,7 +123,7 @@ default:
 Create a secret for `DBT_TOKEN` and reference it in your workflow.
 ```yml
     - name: dbt-action
-      uses: mwhitaker/dbt-action@master
+      uses: ac-analytics/dbt-action@master
       with:
         dbt_command: "dbt run --profiles-dir ."
         http_path: "sql/protocol/"
@@ -131,14 +131,14 @@ Create a secret for `DBT_TOKEN` and reference it in your workflow.
         DBT_TOKEN: ${{ secrets.DBT_TOKEN }}
 ```
 
-If you cannot connect to another database, please submit an [issue](https://github.com/mwhitaker/dbt-action/issues) and we'll figure it out.
+If you cannot connect to another database, please submit an [issue](https://github.com/ac-analytics/dbt-action/issues) and we'll figure it out.
 
 ## Suggested workflow and other tips
 
-Here is a [sample workflow](https://github.com/mwhitaker/dbt-action-sample) that sends dbt console logs by email.
+Here is a [sample workflow](https://github.com/ac-analytics/dbt-action-sample) that sends dbt console logs by email.
 
 ## Bugs and feature requests
-Please submit via [Github issues](https://github.com/mwhitaker/dbt-action/issues).
+Please submit via [Github issues](https://github.com/ac-analytics/dbt-action/issues).
 ## License
 
 [MIT](LICENSE)
